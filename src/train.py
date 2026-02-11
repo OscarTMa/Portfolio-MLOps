@@ -1,12 +1,13 @@
 # src/train.py
 import joblib
+import os  # <--- 1. NUEVO IMPORT
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 def train():
-    # 1. Cargar datos (Simulamos un ETL)
+    # 1. Cargar datos
     print("Cargando datos...")
     data = load_iris()
     X, y = data.data, data.target
@@ -24,8 +25,10 @@ def train():
     accuracy = accuracy_score(y_test, predictions)
     print(f"Model Accuracy: {accuracy:.2f}")
 
-    # 5. Guardar el modelo (Serialización)
-    # Esto es CRÍTICO en MLOps: guardar el artefacto
+    # 5. Guardar el modelo
+    # <--- 2. NUEVO: Crear la carpeta si no existe
+    os.makedirs('models', exist_ok=True) 
+    
     joblib.dump(model, 'models/model.pkl')
     print("Modelo guardado en models/model.pkl")
 
