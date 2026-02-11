@@ -3,3 +3,4 @@ scikit-learn
 numpy
 pytest
 flake8
+joblib
