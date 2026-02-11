@@ -5,40 +5,42 @@ import joblib
 import numpy as np
 import os
 
-# 1. Cargar el modelo (buscamos la ruta correcta)
+# 1. Cargar el modelo
 model_path = 'models/model.pkl'
 
 if not os.path.exists(model_path):
-    raise FileNotFoundError(f"No se encontró el modelo en {model_path}. Ejecuta train.py primero.")
+    # En producción (Docker), a veces las rutas cambian, esto ayuda a depurar
+    model_path = 'model.pkl' 
 
-model = joblib.load(model_path)
+if os.path.exists(model_path):
+    model = joblib.load(model_path)
+else:
+    model = None # Manejo de error suave
 
-# 2. Definir qué datos esperamos recibir (Validación de datos)
+# 2. Definir datos de entrada
 class IrisInput(BaseModel):
     sepal_length: float
     sepal_width: float
     petal_length: float
     petal_width: float
 
-# 3. Crear la APP
-app = FastAPI(title="Mi Primera API de MLOps")
+# 3. Crear APP
+app = FastAPI(title="Iris ML API")
 
 @app.get("/")
 def home():
-    return {"mensaje": "¡La API está viva! Usa /docs para probarla."}
+    return {"message": "API de MLOps funcionando correctamente"}
 
 @app.post("/predict")
 def predict(data: IrisInput):
-    # Convertimos los datos que llegan en un formato que el modelo entienda
+    if not model:
+        return {"error": "Modelo no encontrado"}
+        
     features = np.array([[
         data.sepal_length, 
         data.sepal_width, 
         data.petal_length, 
         data.petal_width
     ]])
-    
-    # Hacemos la predicción
     prediction = model.predict(features)
-    
-    # El modelo devuelve un número (0, 1, 2), lo convertimos a int simple
-    return {"clase_predicha": int(prediction[0])}
+    return {"class": int(prediction[0])}
