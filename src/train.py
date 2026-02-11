@@ -1,6 +1,6 @@
 # src/train.py
 import joblib
-import os  # <--- 1. NUEVO IMPORT
+import os 
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
