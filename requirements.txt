@@ -4,3 +4,6 @@ numpy
 pytest
 flake8
 joblib
+fastapi
+uvicorn
+pydantic
