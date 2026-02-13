@@ -5,10 +5,14 @@
 ![Python Version](https://img.shields.io/badge/python-3.9-blue)
 ![Deployment](https://img.shields.io/badge/deploy-Render-success)
 
+---
+
 ## 📋 Project Overview
 This project demonstrates a robust **MLOps (Machine Learning Operations)** pipeline that automates the lifecycle of a Machine Learning model. It goes beyond simple model training by implementing **Continuous Integration (CI)**, **Continuous Delivery (CD)**, and **Containerization**.
 
 The system trains a Random Forest classifier on the Iris dataset, packages it into a Docker container, and deploys it as a scalable API to the cloud.
+
+---
 
 ### 🏗️ Engineering Architecture
 The following diagram illustrates the automated pipeline triggered by every code push:
@@ -34,7 +38,7 @@ graph LR
     I -->|Serve| J[🚀 Live API Endpoint]
     end
 ```
-
+---
 ### 🛠️ Tech Stack
 
 - Language: Python 3.9
@@ -44,6 +48,8 @@ graph LR
 - Orchestration: GitHub Actions (CI/CD)
 - Artifact Store: GitHub Packages (GHCR)
 - Cloud Provider: Render
+
+---
 
 ### 🚀 How to Run Locally
 
@@ -73,6 +79,8 @@ Test the API:
 Open your browser at http://127.0.0.1:8000/docs to see the Swagger UI.
 ```
 
+---
+
 ### 🐳 How to Run with Docker
 To ensure reproducibility, you can run the application in an isolated container:
 
@@ -83,6 +91,8 @@ docker build -t mlops-app .
 
 # Run the container
 docker run -p 8000:8000 mlops-app
+
+---
 
 # 📡 API Documentation
 The API accepts data about an Iris flower and returns the predicted class (0, 1, or 2).
@@ -109,6 +119,7 @@ JSON
   "class": 0
 }
 ```
+---
 
 ## 🔄 CI/CD Automation Details
 
