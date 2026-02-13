@@ -38,34 +38,30 @@ graph LR
 ```
 
 ### 🛠️ Tech Stack
-Language: Python 3.9
 
-Framework: FastAPI (High-performance API)
-
-ML Library: Scikit-learn
-
-Containerization: Docker
-
-Orchestration: GitHub Actions (CI/CD)
-
-Artifact Store: GitHub Packages (GHCR)
-
-Cloud Provider: Render
+- Language: Python 3.9
+- Framework: FastAPI (High-performance API)
+- ML Library: Scikit-learn
+- Containerization: Docker
+- Orchestration: GitHub Actions (CI/CD)
+- Artifact Store: GitHub Packages (GHCR)
+- Cloud Provider: Render
 
 ### 🚀 How to Run Locally
+
 Clone the repository:
 
 ```Bash
 git clone [https://github.com/oscartma/Portfolio-MLOps.git](https://github.com/oscartma/Portfolio-MLOps.git)
 cd Portfolio-MLOps
-Install dependencies:
 ```
 
+Install dependencies:
 ```Bash
 pip install -r requirements.txt
-Train the model:
 ```
 
+Train the model:
 ```Bash
 python src/train.py
 ```
@@ -97,6 +93,7 @@ Endpoint: POST /predict
 
 Example Request Body:
 
+```Bash
 JSON
 {
   "sepal_length": 5.1,
@@ -104,15 +101,19 @@ JSON
   "petal_length": 1.4,
   "petal_width": 0.2
 }
+```
+
 Example Response:
 
+```Bash
 JSON
 {
   "class": 0
 }
-
+```
 
 ## 🔄 CI/CD Automation Details
+
 The project includes two main workflows:
 
 Quality & Training: Runs unit tests (pytest) and executes the training script to verify model convergence.
