@@ -18,7 +18,7 @@ The system trains a Random Forest classifier on the Iris dataset, packages it in
 The following diagram illustrates the automated pipeline triggered by every code push:
 
 ```mermaid
-graph LR
+graph TD
     A[🧑‍💻 Local Dev] -->|git push| B(🐱 GitHub Repo)
     B --> C{⚙️ GitHub Actions}
     
