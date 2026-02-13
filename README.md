@@ -6,13 +6,11 @@
 ![Deployment](https://img.shields.io/badge/deploy-Render-success)
 
 ## 📋 Project Overview
-
 This project demonstrates a robust **MLOps (Machine Learning Operations)** pipeline that automates the lifecycle of a Machine Learning model. It goes beyond simple model training by implementing **Continuous Integration (CI)**, **Continuous Delivery (CD)**, and **Containerization**.
 
 The system trains a Random Forest classifier on the Iris dataset, packages it into a Docker container, and deploys it as a scalable API to the cloud.
 
 ### 🏗️ Engineering Architecture
-
 The following diagram illustrates the automated pipeline triggered by every code push:
 
 ```mermaid
